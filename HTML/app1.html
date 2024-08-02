@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Generator</title>
+    <link rel="stylesheet" href="/Project1/CSS/app1.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#translator">Translator</a></li>
+            <li><a href="#another-page" onclick="navigateToAnotherPage()">Typing Speed Game</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="intro">
+            <img src="/Project1/morse.jpg" alt="International Morse Code">
+            <h1>Introduction to Morse Code</h1>
+            <p>Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes. It was developed in the 1830s and 1840s by Samuel Morse and Alfred Vail.</p>
+        </div>
+        <div class="translator" id="translator">
+            <h2>Morse Code Translator</h2>
+            <textarea id="text-input" placeholder="Enter text here"></textarea>
+            <textarea id="morse-output" placeholder="Morse code will appear here"></textarea>
+            <button onclick="translateToMorse()">Translate</button>
+        </div>
+    </div>
+    <script src="/Project1/Js/app1.js"></script>
+</body>
+</html>
+
