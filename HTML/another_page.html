@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Speed Game</title>
+    <title>Speed Game</title>
     <link rel="stylesheet" href="/Project1/CSS/second_page.css">
 </head>
 <body>
@@ -13,34 +13,13 @@
             <li><a href="/Project1/HTML/app1.html#translator">Translator</a></li>
         </ul>
     </nav>
-    <div class="wrapper">
-        <input type="text" class="input-field" placeholder="Type here...">
-        <div class="content-box">
-            <div class="typing-text">
-                <p id="text-to-type">Click "Start Game" to begin typing test...</p>
-            </div>
-            <div class="content">
-                <ul class="result-details">
-                    <li class="time">
-                        <p>Time Left:</p>
-                        <span><b id="timer">60</b>s</span>
-                    </li>
-                    <li class="mistake">
-                        <p>Mistakes:</p>
-                        <span id="mistakes">0</span>
-                    </li>
-                    <li class="wpm">
-                        <p>WPM:</p>
-                        <span id="wpm">0</span>
-                    </li>
-                    <li class="cpm">
-                        <p>CPM:</p>
-                        <span id="cpm">0</span>
-                    </li>
-                </ul>
-                <button id="start-game-btn">Start Game</button>
-            </div>
-        </div>
+    <div id="game">
+        <input type="text" id="username" placeholder="Enter your username">
+        <button id="startButton">Start Game</button>
+        <div>Time: <span id="timer">10</span></div>
+        <div>Score: <span id="score">0</span></div>
+        <div>High Score: <span id="highScore">0</span></div>
+        <button id="clickButton" style="display:none;">Click Me!</button>
     </div>
     <script src="/Project1/Js/second_page.js"></script>
 </body>
