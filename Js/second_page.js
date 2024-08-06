@@ -1,18 +1,21 @@
 let timerElement = document.getElementById("timer");
 let scoreElement = document.getElementById("score");
-let highScoreElement = document.getElementById("highScore")
+let highScoreElement = document.getElementById("highScore");
 let startButton = document.getElementById("startButton");
-let clikButton = document.getElementById("clickButton");
+let clickButton = document.getElementById("clickButton");
 let usernameInput = document.getElementById("username");
 
 let timeLeft = 10;
 let score = 0;
-let highScore = 0;
-let highScoreUsername = '';
+let highScore = localStorage.getItem('highScore') || 0;
+let highScoreUsername = localStorage.getItem('highScoreUsername') || '';
 let timer;
 
+// Display the current high score and username
+highScoreElement.textContent = `${highScore} by ${highScoreUsername}`;
+
 startButton.addEventListener("click", startGame);
-clikButton.addEventListener('click', increaseScore);
+clickButton.addEventListener('click', increaseScore);
 
 function startGame() {
     let username = usernameInput.value.trim();
@@ -20,13 +23,13 @@ function startGame() {
         alert("Please enter a username");
         return;
     }
-    
+
     score = 0;
     timeLeft = 10;
     scoreElement.textContent = score;
     timerElement.textContent = timeLeft;
-    clikButton.style.display = 'inline';
-    startButton.style.display = 'none'
+    clickButton.style.display = 'inline';
+    startButton.style.display = 'none';
 
     timer = setInterval(() => {
         timeLeft--;
@@ -37,18 +40,22 @@ function startGame() {
     }, 1000);
 }
 
-function increaseScore(){
+function increaseScore() {
     score++;
     scoreElement.textContent = score;
 }
 
-function endGame(){
+function endGame() {
     clearInterval(timer);
-    clikButton.style.display = 'none';
+    clickButton.style.display = 'none';
     startButton.style.display = 'inline';
     if (score > highScore) {
         highScore = score;
         highScoreUsername = usernameInput.value.trim();
         highScoreElement.textContent = `${highScore} by ${highScoreUsername}`;
+
+        // Save the new high score and username to local storage
+        localStorage.setItem('highScore', highScore);
+        localStorage.setItem('highScoreUsername', highScoreUsername);
     }
 }
